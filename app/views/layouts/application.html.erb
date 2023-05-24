@@ -11,9 +11,15 @@
 
   <body>
     <p>
-      <a href="/sessions/new">Log In</a>
-      |
-      <a href="/users/new">Sign Up</a>
+      <% if @current_user != nil %>
+        Hey, <%= @current_user["first_name"]%>
+        |
+        <a href="/logout"> Log Out</a>
+      <% else %>
+        <a href="/sessions/new">Log In</a>
+        |
+        <a href="/users/new">Sign Up</a>
+      <% end %>
     </p>
 
     <p>
